@@ -40,10 +40,10 @@ import Link from 'next/link';
 import PostCard from '../components/PostCard';
 
 export const getStaticProps = () => {
-  const files = fs.readdirSync('pages/posts');
+  const files = fs.readdirSync('posts');
   const posts = files.map((fileName) => {
     const slug = fileName.replace(/\.md$/, '');
-    const fileContent = fs.readFileSync(`pages/posts/${fileName}`, 'utf-8');
+    const fileContent = fs.readFileSync(`posts/${fileName}`, 'utf-8');
     const { data, content } = matter(fileContent);
     return {
       frontMatter: data,
@@ -60,7 +60,7 @@ export const getStaticProps = () => {
 export default function Home({ posts }) {
   return (
     <div className="my-8">
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 gap-4">
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}

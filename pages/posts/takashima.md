@@ -5,7 +5,7 @@ description: ''
 image: shirahigejinjia_1.jpeg
 ---
 
-# 白鬚神社
+## 白鬚神社
 乘坐湖西线在近江高島駅下车，向南沿着湖边行进
 
 路上路过废弃的日吉神社
@@ -14,9 +14,9 @@ image: shirahigejinjia_1.jpeg
 
 这里最有意思的就是水中的大鸟居
 
-## 注意事项
+### 注意事项
 走路
 
-## 参考链接
+### 参考链接
 [主页](http://shirahigejinja.com)
 
