@@ -3,6 +3,9 @@ import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
+import 'katex/dist/katex.min.css'
 
 export async function getStaticProps({ params }) {
   const file = fs.readFileSync(`posts/${params.slug}.md`, 'utf-8');
@@ -35,7 +38,9 @@ const Post = ({ frontMatter, content }) => {
         />
       </div>
       <h1 className="mt-12">{frontMatter.title}</h1>
-      <ReactMarkdown>{content}</ReactMarkdown>
+      <ReactMarkdown children={content}
+                     remarkPlugins={[remarkMath]}
+                     rehypePlugins={[rehypeKatex]} />
       <span>{frontMatter.date}</span>
     </div>
   );

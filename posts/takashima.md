@@ -15,9 +15,39 @@ image: shirahigejinjia_1.jpeg
 
 我来到寺庙或者是神社是肯定要抽签的，ガチャ瘾是很难戒掉的，在这里抽了一个“吉”，希望一切都顺顺利利吧
 
+> 玉ちほう　かみのめくみの風うけて　もえ出で　にけりのべの　若草
+
+这是御神签上面写的话，我看不大懂
+
+---
+
 ## 注意事项
 沿着湖边公路走的时候，不要在海的一侧走，因为神社在另一侧。几乎没有人行横道可以穿过这条车流量比较多的道路，我当时等了好久才过街（横穿马路）。
 
+---
 ## 参考链接
 [主页](http://shirahigejinja.com)
 
+I paste some code to test code block here
+```
+export const getStaticProps = () => {
+  const files = fs.readdirSync('posts');
+  const posts = files.map((fileName) => {
+    const slug = fileName.replace(/\.md$/, '');
+    const fileContent = fs.readFileSync(`posts/${fileName}`, 'utf-8');
+    const { data, content } = matter(fileContent);
+    return {
+      frontMatter: data,
+      slug,
+    };
+  });
+  return {
+    props: {
+      posts,
+    },
+  };
+};
+```
+
+Test math render here
+$C_L$
