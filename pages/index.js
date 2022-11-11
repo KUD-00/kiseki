@@ -8,15 +8,20 @@ export const getStaticProps = () => {
   const posts = files.map((fileName) => {
     const slug = fileName.replace(/\.md$/, '');
     const fileContent = fs.readFileSync(`posts/${fileName}`, 'utf-8');
-    const { data, content } = matter(fileContent);
+    const { data } = matter(fileContent);
     return {
       frontMatter: data,
       slug,
     };
   });
+
+  const sortedPosts = posts.sort((postA, postB) =>
+    new Date(postA.frontMatter.date) > new Date(postB.frontMatter.date) ? -1 : 1
+  );
+
   return {
     props: {
-      posts,
+      posts: sortedPosts,
     },
   };
 };

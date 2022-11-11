@@ -5,6 +5,11 @@ import Image from 'next/image';
 
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import remarkGfm from 'remark-gfm'
+import remarkToc from 'remark-toc';
+import rehypeSlug from 'rehype-slug';
+import remarkPrism from 'remark-prism';
+
 import 'katex/dist/katex.min.css'
 
 export async function getStaticProps({ params }) {
@@ -39,7 +44,7 @@ const Post = ({ frontMatter, content }) => {
       </div>
       <h1 className="mt-12">{frontMatter.title}</h1>
       <ReactMarkdown children={content}
-                     remarkPlugins={[remarkMath]}
+                     remarkPlugins={[remarkMath, remarkGfm, remarkToc, rehype-slug, remark-prism]}
                      rehypePlugins={[rehypeKatex]} />
       <span>{frontMatter.date}</span>
     </div>
