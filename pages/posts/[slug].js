@@ -43,9 +43,11 @@ const Post = ({ frontMatter, content }) => {
         />
       </div>
       <h1 className="mt-12">{frontMatter.title}</h1>
-      <ReactMarkdown children={content}
+      <ReactMarkdown
                      remarkPlugins={[remarkMath, remarkGfm, remarkToc, rehype-slug, remark-prism]}
-                     rehypePlugins={[rehypeKatex]} />
+                     rehypePlugins={[rehypeKatex]}>
+        {content}
+      </ReactMarkdown>
       <span>{frontMatter.date}</span>
     </div>
   );
